@@ -10,6 +10,21 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
+// import { Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: TasksComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +33,16 @@ import { FormsModule } from '@angular/forms';
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
+    AboutComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
