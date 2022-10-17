@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Mck task 2",
       "day": "May 5th 2022 at 2:30pm",
-      "remainder": true
+      "remainder": false
     },
     {
       "id": 2,
