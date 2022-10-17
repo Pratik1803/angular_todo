@@ -11,6 +11,7 @@ import { Observable, of } from 'rxjs';
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = TASK;
+
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
@@ -30,5 +31,13 @@ export class TasksComponent implements OnInit {
   toggleReminder(task: Task) {
     task.remainder = !task.remainder;
     this.taskService.updateTaskReminder(task).subscribe();
+  }
+
+  addTask(task: Task) {
+    console.log(task);
+    // this.tasks = [...this.tasks, task];
+    this.taskService.addTaskService(task).subscribe((task) => {
+      this.tasks.push(task);
+    });
   }
 }
